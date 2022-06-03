@@ -15,6 +15,4 @@
 
 ## 시연 동영상
 
-<video width="100%" height="100%" controls="controls">
-  <source src="/document/health-house.mp4" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/58337647/171820209-a4463495-2cc3-4bab-b5e5-062d530ac881.mp4
