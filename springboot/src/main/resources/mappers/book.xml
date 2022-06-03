@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.vue.mapper.BookMapper">
+
+	<!-- 전체 책 조회 -->
+	<select id="list" resultType="bookDto">
+		select no, title, author, content
+		from book
+		order by no
+	</select>
+
+	<!-- isbn에 따른 책 상세 조회 -->
+	<select id="search" resultType="bookDto">
+		select no, title, author, content
+		from book
+		where no = #{no}
+	</select>
+
+	<!-- 책 정보 등록 -->
+	<insert id="create" parameterType="bookDto">
+		insert into book(
+		no, title, author, content
+		) values (
+		#{no}, #{title}, #{author}, #{content}
+		)
+	</insert>
+
+	<!-- 책 정보 수정 -->
+	<update id="modify" parameterType="bookDto">
+		<![CDATA[
+		update book
+		set title = #{title}, 
+			author = #{author}, 
+			content = #{content}
+		 where no = #{no}
+		]]>
+	</update>
+
+	<!-- isbn에 따른 도서평 댓글 삭제 -->
+	<delete id="deleteComment" parameterType="String">
+		delete
+		from comments
+		where no = #{no}
+	</delete>
+
+	<!-- isbn에 따른 책 정보 삭제 -->
+	<delete id="delete" parameterType="String">
+		delete
+		from book
+		where no =
+		#{no}
+	</delete>
+
+</mapper>
+
